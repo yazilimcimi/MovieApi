@@ -9,5 +9,10 @@ namespace MovieApi.Application.Features.CQRSDesignPatterns.Queries.CategoryQueri
     public class GetCategoryByIdQuery
     {
         public int CategoryId { get; set; }
+
+        public GetCategoryByIdQuery(int categoryId)
+        {
+            CategoryId = categoryId;
+        }
     }
 }

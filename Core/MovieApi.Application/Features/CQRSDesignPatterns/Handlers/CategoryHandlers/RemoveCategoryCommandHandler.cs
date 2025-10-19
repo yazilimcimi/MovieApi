@@ -14,10 +14,11 @@ namespace MovieApi.Application.Features.CQRSDesignPatterns.Handlers.CategoryHand
 
         public RemoveCategoryCommandHandler(MovieContext context) { _context = context; }
 
-        public async void handle(RemoveCategoryCommand command)
+        public async Task Handle(RemoveCategoryCommand command)
         {
             var value = await _context.Categories.FindAsync(command.CategoryId);
-            _context.Movies.Remove(value);
+            _context.Categories.Remove(value);
             await _context.SaveChangesAsync();
+        }
     }
 }
